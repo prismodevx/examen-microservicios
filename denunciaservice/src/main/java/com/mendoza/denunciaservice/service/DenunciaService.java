@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface DenunciaService {
     public List<Denuncia> getAll(Pageable page);
+    public List<Denuncia> getAllByDni(String dni);
     public Denuncia getById(int id);
     public Denuncia create(Denuncia denuncia);
     public Denuncia update(Denuncia denuncia);

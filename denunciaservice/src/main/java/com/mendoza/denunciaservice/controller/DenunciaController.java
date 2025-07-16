@@ -37,6 +37,12 @@ public class DenunciaController {
         return ResponseEntity.ok(denuncia);
     }
 
+    @GetMapping(value = "/usuario/{dni}")
+    public ResponseEntity<List<Denuncia>> getByDni(@PathVariable("dni") String dni) {
+        List<Denuncia> registros = service.getAllByDni(dni);
+        return ResponseEntity.ok(registros);
+    }
+
     @PostMapping
     public ResponseEntity<Denuncia> create(@RequestBody Denuncia denuncia){
         Denuncia registro = service.create(denuncia);

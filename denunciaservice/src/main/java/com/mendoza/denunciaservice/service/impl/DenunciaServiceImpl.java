@@ -28,6 +28,17 @@ public class DenunciaServiceImpl implements DenunciaService {
 
     @Override
     @Transactional(readOnly = true)
+    public List<Denuncia> getAllByDni(String dni) {
+        try {
+            List<Denuncia> registros = repository.findByDni(dni);
+            return registros;
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public Denuncia getById(int id) {
         try {
             Denuncia registro = repository.findById(id).orElseThrow();
